@@ -1,0 +1,14 @@
+name: cross platform buil
+on: [push, pull_request]
+  jobs:
+    build-unix:
+       runs-on: ubuntu-lates
+          steps:
+            - uses: actions/checkout@v
+            - uses: actions/setup-java@v
+              with:
+                distribution: 'temurin'
+                java-version: '23'
+                cache: 'maven'
+            - name: Build with Mave
+              run: mvn -B clean package --file pom.xm
